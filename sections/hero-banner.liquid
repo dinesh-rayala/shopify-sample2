@@ -1,0 +1,197 @@
+{% if section.blocks.size > 0 %}
+  <div class="">
+    {%- for block in section.blocks -%}
+      {% assign desktop= block.settings.image %}
+      {% assign mobile= block.settings.image_mobile %}
+
+      <div class="hero-banner__wrapper">
+        <div class="hero-banner__backgroundimage">
+          {%- render 'image'
+          , class: 'img'
+          , mobileSrc: mobile 
+          , desktopSrc: desktop
+          -%}
+        </div>
+        <div class="hero-banner__content page-width {{ section.settings.content_position }}">
+          <div class="hero-banner__content-child">
+            {% if block.settings.heading_text != blank %}
+              <div class="hero-banner__heading left">
+                {{ block.settings.heading_text | replace: '<p', '<h3' }}
+              </div>
+            {% endif %}
+            <div class="hero-banner__caption">
+              <p class="left">
+                {{ block.settings.caption_text }}
+              </p>
+            </div>
+            <div class="hero-banner__icons left">
+              <div class="hero-banner__icon flex justify-between ">
+                <div class="flex align-center">
+                  <img src="{{ block.settings.icon1 | image_url: width: '30x30' }}">
+                  <p>{{ block.settings.icon_text1 }}</p>
+                </div>
+                <div class="flex align-center">
+                  <img src="{{ block.settings.icon2 | image_url: width: '30x30' }}">
+                  <p>{{ block.settings.icon_text2 }}</p>
+                </div>
+              </div>
+              <div class="hero-banner__icon flex justify-between">
+                <div class="flex align-center">
+                  <img src="{{ block.settings.icon3 | image_url: width: '30x30' }}">
+                  <p>{{ block.settings.icon_text3 }}</p>
+                </div>
+                <div class="flex align-center">
+                  <img src="{{ block.settings.icon4 | image_url: width: '30x30' }}">
+                  <p>{{ block.settings.icon_text4 }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="left">
+              <button class="button button--primary">{{ block.settings.Button_text }}
+              </button>
+            </div>
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Hero banner",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "content_position",
+        "label": "Content Position",
+        "options": [
+          {
+            "value": "justify-start align-start",
+            "label": "Top left"
+          },
+          {
+            "value": "justify-center align-start",
+            "label": "Top center"
+          },
+          {
+            "value": "justify-end align-start",
+            "label": "Top right"
+          },
+          {
+            "value": "justify-start align-center",
+            "label": "Middle left"
+          }, {
+            "value": "justify-center align-center",
+            "label": "Middle center"
+          }, {
+            "value": "justify-end align-center",
+            "label": "Middle right"
+          }, {
+            "value": "justify-start align-end",
+            "label": "Bottom left"
+          }, {
+            "value": "justify-center align-end",
+            "label": "Bottom center"
+          }, {
+            "value": "justify-end align-end",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "justify-end align-center"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "carousel-blocks",
+        "name": "Hero Content",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image (Desktop)"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image (Mobile)"
+          },
+          {
+            "type": "header",
+            "content": "Text Settings"
+          },
+          {
+            "type": "richtext",
+            "id": "heading_text",
+            "label": "Heading Text",
+            "default": "<p></p>"
+          }, {
+            "type": "text",
+            "id": "caption_text",
+            "label": " Caption Text",
+            "default": "text goes here"
+          }, {
+            "type": "header",
+            "content": "Icon Settings"
+          }, {
+            "type": "text",
+            "id": "icon_text1",
+            "label": "Text",
+            "default": "text goes here"
+          }, {
+            "type": "image_picker",
+            "id": "icon1",
+            "label": "Icon Image"
+          }, {
+            "type": "text",
+            "id": "icon_text2",
+            "label": "Text",
+            "default": "text goes here"
+          }, {
+            "type": "image_picker",
+            "id": "icon2",
+            "label": "Icon Image"
+          }, {
+            "type": "text",
+            "id": "icon_text3",
+            "label": "Text",
+            "default": "text goes here"
+          }, {
+            "type": "image_picker",
+            "id": "icon3",
+            "label": "Icon Image"
+          }, {
+            "type": "text",
+            "id": "icon_text4",
+            "label": "Text",
+            "default": "Heading text goes here"
+          }, {
+            "type": "image_picker",
+            "id": "icon4",
+            "label": "Icon Image"
+          }, {
+            "type": "header",
+            "content": "Button Settings"
+          }, {
+            "type": "text",
+            "id": "Button_text",
+            "label": "Button Text",
+            "default": "Button text goes here"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero banner"
+      }
+    ],
+    "max_blocks": 1
+  }
+{% endschema %}

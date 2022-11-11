@@ -1,0 +1,83 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="page-width collection-grid">
+    {% if section.settings.section_heading != blank %}
+      <div class="section-heading center">
+        {{ section.settings.section_heading | replace: '<p>', '<h2>' }}
+      </div>
+    {% endif %}
+    <div class="grid grid--2-col grid--3-col-desktop">
+      {%- for block in section.blocks -%}
+        {% if block.settings.image != blank %}
+          <div class="grid__item collection-grid-item">
+            <div class="collection-grid__wrapper background-{{ block.id }}">
+              <a href="{{ block.settings.image_url }}" class="collection-grid_url">
+                <div class="collection-grid_image">
+                  {%- render 'image',class="media media--square", mobileSrc: block.settings.image, desktopSrc: block.settings.image -%}
+                </div>
+                <div class="collection-grid__overlay center">
+                  {{ block.settings.image_text | replace: '<p>', '<h5>' }}
+                </div>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+{%- style -%}
+  {%- for block in section.blocks -%}
+    .background-{{ block.id }}{
+      background-color: {{ block.settings.background_color }};
+    }
+  {%- endfor -%}
+{%- endstyle -%}
+{% schema %}
+ {
+  "name":"Collection grid",
+  "tag":"section",
+  "class":"section",
+  "settings":[
+    {
+      "type":"richtext",
+      "id":"section_heading",
+      "label":"Heading",
+      "default":"<p>Shop By Category</p>"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"image-blocks",
+      "name":"Image Content",
+      "settings":[
+        {
+          "type":"url",
+          "id":"image_url",
+          "label":"Link"
+        },
+        {
+          "type":"color",
+          "id":"background_color",
+          "label":"Background Color",
+          "default":"#F4FCF9"
+        },
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Image"
+        },
+        {
+          "type":"richtext",
+          "id":"image_text",
+          "label":"Image Heading"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Collection grid"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="page-width image-grids center">
+    {% if section.settings.section_heading != blank %}
+      <div class="section-heading">
+        {{ section.settings.section_heading | replace: '<p', '<h2' }}
+      </div>
+    {% endif %}
+  
+    <div class="grid grid--1-col grid--4-col-desktop grid--2-col-tablet">
+      {% for block in section.blocks %} 
+        <div class="grid__item">
+          <div class="image-grids__wrapper">
+            <a class="image-overlay">
+              {%- if block.settings.image != blank -%}
+                {%- render 'image', 
+                  class: 'image-block media media--portrait',
+                  mobileSrc: block.settings.image,
+                  desktopSrc: block.settings.image
+                -%}
+              {% endif %}
+
+              <div class="image-grids__overlay">
+                {% if block.settings.heading != blank %}
+                  <div class=" image-grids__overlay--heading">{{ block.settings.heading }}</div>
+                {% endif %}
+                {% if block.settings.paragraph != blank %}
+                  <div class="image-grids__overlay--paragraph">{{ block.settings.paragraph }}</div>
+                {% endif %}                
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Image overlay grids",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "section_heading",
+        "label": "Section heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image-item",
+        "name": "Image item",
+        "settings": [
+           {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "type": "url",
+              "id": "url",
+              "label": "Url"
+            },     
+           {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "#Heading"
+           },
+           {
+            "type": "text",
+            "id": "paragraph",
+            "label": "Paragraph",
+            "default": "Lorem ipsum dolor sit amet"
+           }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name":"Image overlay grids"
+      }
+    ]
+  }
+{% endschema %}

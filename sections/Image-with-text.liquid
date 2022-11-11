@@ -1,0 +1,146 @@
+<div class="main-wrapper color-{{ section.id }}">
+  <div class="page-width image-with-text__wrapper">
+    <div class="image-with-text {{ section.settings.switch }}">
+      <div class="text-container">
+        {%- if section.settings.image != blank -%}
+          <div class="text-container__image">
+            {%- render 'image', 
+              class: 'text-container__image-child media media--square',
+              mobileSrc: section.settings.image,
+              desktopSrc: section.settings.image
+            -%}     
+          </div>
+        {%- endif -%}
+        <div class="text-container__text">
+          {% if section.settings.heading != blank %}
+            <div class="text-container__heading section-heading heading-{{ section.id }}">
+              {{ section.settings.heading | replace: '<p', '<h2' }}
+            </div>
+            {% if section.settings.caption != blank %}
+              <div class="text-container__caption">
+                {{ section.settings.caption  }}
+              </div>
+            {% endif %}
+            {% if section.settings.paragraph != blank %}
+              <div class="text-container__paragraph">
+                {{ section.settings.paragraph  }}
+              </div>
+            {% endif %}
+            <div class="text-container__button ">
+              <a href="#" class="button button--primary">{{ section.settings.button }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="image-container">
+        {%- if section.settings.big-image != blank -%}
+          <div class="image-container__big-image">
+            {%- render 'image', 
+              class: 'image-container__image-child media media--square',
+              mobileSrc: section.settings.big-image,
+              desktopSrc: section.settings.big-image 
+            -%}     
+          </div>
+        {%- endif -%}
+      </div>
+      
+    </div>
+  </div>  
+</div>
+{% style %}
+  .color-{{ section.id }}{
+    background: {{ section.settings.background }}
+  }
+  .heading-{{section.id}} > h3 {
+    color: {{ section.settings.heading_color }}
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "name": "Image with text",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Color settings"
+      },
+      {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background color",
+        "default": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(244, 248, 255, 1) 37%)"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Text color",
+        "default": "#163F55"
+      },
+      {
+        "type": "header",
+        "content": "Image settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "big-image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "switch",
+        "label": "Image position",
+        "options": [
+          {
+            "value": "left-switch",
+            "label": "Left"
+          }, {
+            "value": "right-switch",
+            "label": "Right"
+          }
+        ],
+        "default": "left-switch",
+        "info": "Note: The position only works for desktop"
+      },
+      {
+        "type": "header",
+        "content": "Content settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading text",
+        "default": "<p>Get 15% Off on your first order, get free delivery</p>"
+      }, {
+        "type": "richtext",
+        "id": "caption",
+        "label": "Caption text",
+        "default": "<p>lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl</p>"
+      }, {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph text"
+      }, {
+        "type": "text",
+        "id": "button",
+        "label": "Button text",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text"
+      }
+    ]
+  }
+{% endschema %}

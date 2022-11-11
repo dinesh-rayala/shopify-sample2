@@ -1,0 +1,31 @@
+<div class="article-card">
+  {%- if article.image != blank -%}
+    <a href="{{ article.url }}" class="article-card__link">
+      {% render 'image',
+        class:  'media media--landscape article-card__image',
+        mobileSrc: article.image, 
+        desktopSrc: article.image 
+      %}
+    </a>
+    
+    <div class="article-card__info">
+      <h4 class="article-card__title section-heading">
+        {{ article.title }}</h4>
+
+      <div class="article-card__date section-heading">
+        {{ article.published_at | date: '%B %d, %Y' }}
+      </div>
+
+      <div class="article-card__para section-heading">
+        {{ article.content | strip_html | truncate: 100 }}
+      </div>
+
+      <a href="{{ article.url }}">
+        <div class="article-card__link">
+          <h5>Know More</h5>
+        </div>
+      </a>    
+    {%- endif -%}
+  </div>
+
+</div>

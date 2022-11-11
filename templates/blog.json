@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "blog-banner": {
+      "type": "blog-banner",
+      "settings": {
+        "content_position": "justify-center",
+        "image": "shopify:\/\/shop_images\/Group_212665.png",
+        "heading_color": "#ffffff",
+        "caption_color": "#ffffff",
+        "heading_text": "<p>News Room<\/p>",
+        "caption_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas necessitatibus similique"
+      }
+    },
+    "main-blog": {
+      "type": "main-blog",
+      "settings": {
+        "blog": "news",
+        "article_limit": 4
+      }
+    }
+  },
+  "order": [
+    "blog-banner",
+    "main-blog"
+  ]
+}

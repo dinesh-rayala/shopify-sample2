@@ -1,0 +1,28 @@
+{% comment %} {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'facets.js' | asset_url }}"></script> {% endcomment %}
+<script src="{{ 'lyne-filter.js' | asset_url }}"  defer="defer"></script>
+
+{%- paginate collection.products by 20 -%}
+  <div class="page-width">
+    <div class="product-grid-container" id="ProductGridContainer">
+  
+     <aside class="filter-wrapper" id="main-collection-filters" data-id="{{ section.id }}">
+        {% render 'lyne-filter', results: collection %}
+  
+      </aside>
+    
+      <div class="collection">
+        <ul id="ProductGrid" data-id="{{ section.id }}" class="grid product-grid grid--1-col-tablet-down grid--3-col-desktop">
+          {%- for product in collection.products -%}
+            <li class="grid__item">
+              {% render 'product-card', product: product %}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate, anchor: '' %}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endpaginate -%}

@@ -1,0 +1,29 @@
+{% paginate blog.articles by 3 %}
+  <div class="page-width main-blog">
+    <div class="main-blogs__heading section-heading center">
+      <h2> {{ blog.title }} </h2>
+    </div>
+    
+    <div class="grid grid--1-col grid--3-col-desktop">
+      {%- for article in blog.articles -%}
+        <div class="grid__item">
+          {% render 'article-card', article: article %}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+  </div>
+{% endpaginate %}
+
+
+{% schema %}
+  {
+    "name": "Main blog",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+
+    ]
+  }
+{% endschema %}

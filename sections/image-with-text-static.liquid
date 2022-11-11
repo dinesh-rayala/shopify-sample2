@@ -1,0 +1,112 @@
+<div class="main-wrapper color-{{ section.id }}">
+  <div class="page-width image-with-text__wrapper">
+    <div class="image-with-text {{ section.settings.switch }}">
+
+      <div class="text-container">
+          {% if section.settings.heading != blank %}
+              <div class="text-container__heading heading-{{ section.id }} section-heading ">
+                {{ section.settings.heading | replace: '<p', '<h2' }}
+                  {% if section.settings.caption != blank %}
+                    <div class="text-container__caption">
+                      {{ section.settings.caption }}
+                    </div>
+                  {% endif %}
+              </div>
+          {% endif %}
+      </div>
+
+      <div class="image-container">
+        {%- if section.settings.big-image != blank -%}
+          <div class="image-container__big-image">
+            {%- render 'image', 
+              class: 'image-container__image-child media media--square',
+              mobileSrc: section.settings.big-image,
+              desktopSrc: section.settings.big-image 
+            -%}     
+          </div>
+        {%- endif -%}
+      </div>
+      
+    </div>
+  </div>  
+</div>
+<style>
+</style>
+{% style %}
+  .color-{{ section.id }}{
+    background: {{ section.settings.background }}
+  }
+  .heading-{{section.id}} > h3 {
+    color: {{ section.settings.heading_color }}
+  }
+  .text-container{
+    max-width: 30%;
+    width: 100%
+  }
+  .image-container{
+    width: 100%;
+    max-width: 70%;
+    margin-left: auto;
+  }
+  .text-container__caption{
+    font-size: 16px;
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "name": "Image-text in product",
+    "class": "section",
+    "settings": [   
+      {
+        "type": "select",
+        "id": "switch",
+        "label": "Switch Position for image and text",
+        "options": [
+          {
+          "value": "left-switch",
+          "label": "Left"
+          },
+          {
+            "value": "right-switch",
+            "label": "Right"
+          }
+        ],
+        "default": "left-switch",
+        "info": "Only works on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Color settings"
+      },
+      {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background",
+        "default": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(244, 248, 255, 1) 37%)"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Text color",
+        "default": "#163F55"
+      },   
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading",
+        "default": "<p>Get 15% Off on your first order, get free delivery</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "caption",
+        "label": "Caption text",
+        "default": "<p>lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "big-image",
+        "label": "Choose Image for other half screen"
+      }    
+    ]
+  }
+{% endschema %}

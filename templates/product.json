@@ -1,0 +1,134 @@
+{
+  "sections": {
+    "main": {
+      "type": "marmeto-product-template",
+      "blocks": {
+        "dded1bd0-817e-4466-ba23-f174e7e32210": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+            "stars_fill_color": "#000000",
+            "star_size": 15,
+            "text_align": "left",
+            "product": "{{product}}",
+            "stars_text_empty": ""
+          }
+        },
+        "17d055ca-50f0-48df-aea2-288e3ab0a309": {
+          "type": "badge",
+          "settings": {
+          }
+        },
+        "001bb012-41d8-4915-983a-32b9ed45f7ef": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "9d5d6ee3-a959-4597-a2d8-fd7caffa3caf": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "03165f08-d870-4eb9-958c-2c3dfd08d426": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "af75c915-3f2c-4e91-8856-a03cc1337f4f": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "53c89111-1669-4668-be47-447191655919": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "33273a3b-7274-48fe-8393-8e869a03a4b8": {
+          "type": "features",
+          "settings": {
+          }
+        },
+        "e11bc877-477b-4fae-a818-395576ef0350": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "dded1bd0-817e-4466-ba23-f174e7e32210",
+        "17d055ca-50f0-48df-aea2-288e3ab0a309",
+        "001bb012-41d8-4915-983a-32b9ed45f7ef",
+        "9d5d6ee3-a959-4597-a2d8-fd7caffa3caf",
+        "03165f08-d870-4eb9-958c-2c3dfd08d426",
+        "af75c915-3f2c-4e91-8856-a03cc1337f4f",
+        "53c89111-1669-4668-be47-447191655919",
+        "33273a3b-7274-48fe-8393-8e869a03a4b8",
+        "e11bc877-477b-4fae-a818-395576ef0350"
+      ],
+      "settings": {
+      }
+    },
+    "product-upsell": {
+      "type": "upsell",
+      "settings": {
+        "enable_product_upselling": true,
+        "title": "Frequently brought together"
+      }
+    },
+    "image-text-static": {
+      "type": "image-with-text-static",
+      "settings": {
+        "switch": "left-switch",
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(244, 248, 255, 1) 37%)",
+        "heading_color": "#163f55",
+        "heading": "<p><strong>Glance<\/strong><br\/>at everything<br\/>you need<\/p>",
+        "caption": "<p>lorem10 <\/p>",
+        "big-image": "shopify:\/\/shop_images\/Group_212652.png"
+      }
+    },
+    "image-text-static2": {
+      "type": "static-section-product",
+      "settings": {
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(244, 248, 255, 1) 1%)",
+        "heading_text": "<p>Never miss a thing<\/p>",
+        "para_text": "<p>Lorem ipsum dolor sit <br\/>amet,consecteturadipiscing <br\/>elit. Aenean at lobortis mi<\/p>",
+        "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+        "heading_text1": "<p>Watch,<br\/>your health better<\/p>",
+        "para_text1": "<p>Lorem ipsum dolor sit <br\/>amet,consecteturadipiscing <br\/>elit. Aenean at lobortis mi<\/p>"
+      }
+    },
+    "image-text-static3": {
+      "type": "static-section2-product",
+      "settings": {
+        "switch": "right-switch",
+        "background": "Linear-gradient(90deg, rgba(54,54,56,1) 32%, rgba(141,141,141,1) 100%, rgba(1,3,0,1) 100%)",
+        "heading_color": "#ffffff",
+        "heading": "<p>Exercise ??<br\/>This watch is all you need<\/p>",
+        "big-image": "shopify:\/\/shop_images\/Mask_Group_130431_76b824f0-190f-4aca-aa07-3ea814649c15.png"
+      }
+    },
+    "product-recommendations": {
+      "type": "marmeto-product-recommendations",
+      "settings": {
+        "enable_product_recommendations": true,
+        "title": "You may also like"
+      }
+    },
+    "faqs": {
+      "type": "faqs",
+      "settings": {
+        "section_heading": "<p>FAQS<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-upsell",
+    "image-text-static",
+    "image-text-static2",
+    "image-text-static3",
+    "product-recommendations",
+    "faqs"
+  ]
+}

@@ -1,0 +1,197 @@
+<product-card class="product-card" data-handle={{ product.handle }}>
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+  {%- assign form_id = 'Form-' | append: section.id | append: product.id -%}
+
+
+
+  <div class="wish-list__button">
+    <div>
+      {%- for tag in product.tags -%}
+        {%- if tag contains 'universal__' -%}
+
+          {%- assign badgeText = tag | split: '__' | last -%}
+          <div class="product-tags">
+            <div class="product__badge">{{ badgeText }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+      {{}}
+    </div>
+    <div class="heart__button flex center">
+      <img src={{ 'heart.png' | asset_img_url}} alt="s">
+    </div>
+  </div>
+
+  <a href="{{ product.url }}" class="product-card__link">
+    {%- render 'image'
+      , class: 'product-card__image media media--square'
+      , mobileSrc: featured_image
+      , desktopSrc: featured_image
+      -%}
+  </a>
+
+
+
+  <div class="product-card__form">
+    {%- form 'product', product, class: 'center', id: form_id -%}
+      <input type="hidden" name="quantity" value="1">
+       <select name="id" class="hidden">
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}" {% if variant.id == current_variant.id %}selected{% endif %}>
+            {{ variant.title | truncatewords: 1 }}
+          </option>
+        {% endfor %}
+      </select> 
+
+  
+        {% unless product.has_only_default_variant %}
+        {%- for option in product.options_with_values -%}
+        <div class="product-card__options">
+        <label class="product-card__options--label h5">{{ option.name }}</label>
+
+        <div class="product-card__options--swatches flex flex-wrap align-center justify-center">
+        {%- for value in option.values -%}
+        <div class="product-card__options--swatch swatch-{{ option.name | handleize }}">
+        <input hidden type="radio" id="{{ section.id }}-{{ product.id }}-{{ value }}" name="{{ option.name }}" value="{{ value | escape }}" {% if option.selected_value == value %}checked{% endif %}>
+        {% if option.name == 'Color' %}
+        <label for="{{ section.id }}-{{ product.id }}-{{ value }}" style="background-color: {{ value | handleize }}; background-image: url({{ value | handleize | append: '.png' | file_img_url }})"></label>
+        {% else %}
+        <label for="{{ section.id }}-{{ product.id }}-{{ value }}">
+        {{ value }}
+        </label>
+        {% endif %}
+        </div>
+        {%- endfor -%}
+        </div>
+        </div>
+        {%- endfor -%}
+        {% endunless %}
+      
+    {%- endform -%}
+  </div>
+
+  {%- comment -%}
+    {% if product.description contains "<!--split-->" %}
+    <div class="product-card__description">
+    {{product.description  | split: '<!--split-->' | last }}
+    </div>
+    {% endif %}
+  {%- endcomment -%}
+  <div class="flex justify-between product-card__meta">
+    <a class="h5 center" href="{{ product.url }}">{{ product.title | truncatewords: 2 | remove: "..."  }}</a>
+    <div class="product-type__container">
+      {% if product.type != blank %}
+        {{ product.type }}
+      {% else %}
+        <div class="hiddentype"></div>
+      {% endif %}
+
+    </div>
+    <div class="product-card__prices flex center">
+      <div class="product-card__price">{{ current_variant.price | money_without_trailing_zeros }}</div>
+
+       {% if current_variant.compare_at_price > current_variant.price %}
+        <div class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</div>
+      {% endif %} 
+    </div>
+  </div>
+
+
+
+   <div class="product-card__button center">
+    {% if current_variant.available %}
+      <button type="submit" class="button button--primary button--full-width card_button" form="{{ form_id }}">Add to cart</button>
+    {% else %}
+      <button type="button" class="button button--primary button--full-width" disabled>Soldout</button>
+    {% endif %}
+  </div> 
+
+
+  <script type="application/json">
+    {{ product.variants | json }}
+  </script>
+</product-card>
+
+
+
+<style>
+  .wish-list__button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wish-list__button>img{
+  cursor: pointer;
+}
+
+
+
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2.5rem 2rem;
+    position: relative;
+    border-radius: 1.5rem;
+    background-color: #f8fbfd;
+    margin:1.5rem;
+}
+.product-tags {
+    background-color: #2DAA81;
+    padding: 0.1rem 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+}
+.heart__button {
+    align-items: center;
+    height:20px;
+    width:20px;
+}
+
+.product-card__form {
+    margin: 2rem 0;
+}
+
+.product-card__meta {
+    padding: 15px;
+}
+.product-card__meta {
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.product-card__meta {
+    margin-bottom: 2rem;
+}
+
+.product-type__container {
+    font-weight: 400;
+    font-size: 1.55rem;
+    color:#676e74;
+}
+.product-card__prices {
+    align-items: flex-end;
+    margin-top: 0.5rem;
+}
+.product-card__price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-overflow: none;
+    width: fit-content;
+    white-space: nowrap;
+}
+.product-card__compareprice {
+    color: #707070;
+    font-size: 1.4rem;
+    text-align: center;
+    text-decoration: line-through;
+}
+.product-card__button {
+    margin-top: auto;
+}
+</style>

@@ -1,0 +1,78 @@
+<div class="page-width container-{{ section.id }}">
+    <div class="flex  justify-start">
+      <div class="left">
+    <h2 class="section-heading margin">{{ section.settings.heading_text }}</h2>
+    <p >{{ section.settings.para_text }}</p>
+    </div>
+    </div> 
+    <div class="flex justify-center " >
+    {%- render 'image', 
+              class: '',
+              mobileSrc: ,
+              desktopSrc: section.settings.image 
+            -%} 
+    </div>
+     <div class="flex  justify-end">
+      <div class="left">
+      <h2>{{ section.settings.heading_text1 }}</h2>
+    <p >{{ section.settings.para_text1 }}</p>
+    </div>
+    </div>  
+
+</div>
+{% style %}
+.margin{
+  margin-bottom:-20px;
+}
+.container-{{ section.id }}{
+  background: {{ section.settings.background }};
+}
+{% endstyle%}
+{% schema %}
+  {
+  "name": "product-advt",
+  "tag" : "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background",
+        "default": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(244, 248, 255, 1) 37%)"
+      },
+    {
+  "type":"header",
+  "content":"Text Box"
+  },
+    {
+  "type": "richtext",
+  "id": "heading_text",
+  "label": "Heading Text",
+  "default":"<p></p>"
+  },{
+  "type": "richtext",
+  "id": "para_text",
+  "label": "Para Text",
+  "default": "<p></p>"
+  },{
+  "type": "image_picker",
+  "id": "image",
+  "label": "Image"
+  },{
+  "type":"header",
+  "content":"Text Box"
+  },
+  {
+  "type": "richtext",
+  "id": "heading_text1",
+  "label": "Heading Text",
+  "default":"<p></p>"
+  },{
+  "type": "richtext",
+  "id": "para_text1",
+  "label": "Para Text",
+  "default": "<p></p>"
+  }
+  ]
+  }
+  {% endschema %}

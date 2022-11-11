@@ -1,0 +1,143 @@
+<div class="page-width image-product">
+  <div class="image-product__wrapper background-{{ section.id }}">
+    <div class="flex-container image-product__parent">
+      <div class=" image-product__texts1">
+        <div class="image-product__texts">
+          {%- if section.settings.heading_text != blank -%}
+            <div class="image-product__heading heading-{{ section.id }}">{{ section.settings.heading_text }}</div>
+          {%- endif -%}
+          {%- if section.settings.paragraph_text != blank -%}
+            <div class="image-product__paragraph paragraph-{{ section.id }}">{{ section.settings.paragraph_text }}</div>
+          {%- endif -%}
+          {%- if section.settings.signature_text != blank -%}
+            <div class="image-product__signature signature-{{ section.id }}">{{ section.settings.signature_text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="flex__item1">
+        <div class="image-product__image">
+          {%- if section.settings.image != blank -%}
+            {% assign mobile_image = section.settings.image_mobile | default: section.settings.image  %}
+            {% render 'image', mobileSrc: mobile_image, desktopSrc: section.settings.image %}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="grid__item">
+        {% if section.settings.product != blank %}
+          {% assign product = all_products[section.settings.product] %}
+          <div class="image-product__product">
+
+            <div class="image-product1__image">
+              {%- render 'image' , mobileSrc: product.featured_image, desktopSrc: product.featured_image-%}
+            </div>
+            <div class="image-product__name">
+              {{product.title  | slice: 0, 21 }}
+            </div>
+
+            <div class="image-product__price">
+              {{product.price  | money_without_trailing_zeros }}
+            </div>
+            <a href="{{product.url}}">
+              Shop Now
+              <span>&rarr;</span>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%- style -%}
+  .background-{{ section.id }}{
+    background: {{ section.settings.background_color }};
+  }
+  .heading-{{ section.id }}{
+    color: {{ section.settings.heading_color }};
+  }
+  .paragraph-{{ section.id }}, .paragraph-{{ section.id }}> * {
+    color: {{ section.settings.paragraph_color }};
+  }
+  .signature-{{ section.id }}{
+    color: {{ section.settings.signature_color }};
+  }
+{%- endstyle -%}
+
+
+{% schema %}
+  {
+    "name": "Image with product",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color_background",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "linear-gradient(rgba(45, 85, 144, 1) , rgba(45, 170, 129, 1))"
+      },
+      {
+        "type": "header",
+        "content": "Text settings"
+      },
+      {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading text",
+        "default": "Heading text"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading text color",
+        "default": "#ffffff"
+      }, {
+        "type": "richtext",
+        "id": "paragraph_text",
+        "label": "Paragraph text",
+        "default": "<p>Lorem ipsum dolor sit amet, consetetur sadips elitr, sed diam nonumy eirmod tempor invidunt labore et dolore magna aliquyam erat, sed magna aliquyam era</p>"
+      }, {
+        "type": "color",
+        "id": "paragraph_color",
+        "label": "Paragraph text color",
+        "default": "#ffffff"
+      }, {
+        "type": "text",
+        "id": "signature_text",
+        "label": "Signature text",
+        "default": "Signature text"
+      }, {
+        "type": "color",
+        "id": "signature_color",
+        "label": "Signature text color",
+        "default": "#ffffff"
+      }, {
+        "type": "header",
+        "content": "Image settings"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image (Mobile)"
+      }, {
+        "type": "header",
+        "content": "Product settings"
+      }, {
+        "type": "product",
+        "id": "product",
+        "label": "Product"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with product"
+      }
+    ]
+  }
+{% endschema %}

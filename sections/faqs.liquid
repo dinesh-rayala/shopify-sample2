@@ -1,0 +1,38 @@
+<div class=" faqs-container">
+  {% if section.settings.section_heading != blank %}
+              <div class=" section-heading center ">
+                {{ section.settings.section_heading | replace: '<p', '<h2' }}
+                </div>
+                  {% endif %}
+  {% for i in (1..4) %}
+  {% assign b= "faq" | append: i %}
+  {% assign a=product.metafields.faqs[b] | metafield_text | split :'and' %}
+  {%- comment -%} {{ a }} {%- endcomment -%}
+  <div class="faqs-details">
+    <details>
+      <summary>
+          <div class="faqs-heading">
+            {{ a | first | remove :'"' }}
+          </div>  
+      </summary>
+      <div class="faqs-description">
+      <p>{{ a |last | remove : '"' }}</p>
+      </div>
+    </details>
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "faqs",
+    "class": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "section_heading",
+        "label": "Section heading"
+      }
+     ]
+  }
+{% endschema %}

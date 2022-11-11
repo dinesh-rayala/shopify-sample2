@@ -1,0 +1,37 @@
+<div class="article-page__wrapper page-width">
+  {%- if article.title != blank -%}
+    <div class="article-page__title">
+      <h2> {{ article.title }} </h2>
+    </div>
+  {%- endif -%}
+  <div class="article-page__image">
+    {%- if article.image != blank -%}
+      <a href="{{ article.url }}" class="article-card__link">
+        {% render 'image',
+          class:  'media media--landscape ',
+          mobileSrc: article.image, 
+          desktopSrc: article.image 
+        %}
+      </a>
+    {%- endif -%}
+  </div>
+  <div class="article-page__information">
+    {% if article.content != blank %}
+      {{ article.content }}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article page",
+    "class": "section",
+    "settings": [
+    
+    ]
+  }
+{% endschema %}
+
+
+
+

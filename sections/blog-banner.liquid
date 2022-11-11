@@ -1,0 +1,118 @@
+<div class="blog-banner__wrapper">
+  {% assign desktop= section.settings.image %}
+  {% assign mobile= section.settings.image_mobile %}
+
+  <div class="blog-banner">
+
+    <div class="blog-banner__imagecontainer">
+      {%- render 'image'
+      , class: 'blog-banner__image'
+      , mobileSrc: mobile 
+      , desktopSrc: desktop
+      -%}
+    </div>
+    <div class="blog-banner__content page-width center flex {{ section.settings.content_position }}">
+      <div class="blog-banner__content-child">
+        {% if section.settings.heading_text != blank %}
+          <div class="blog-banner__heading heading-{{ section.id }}">
+            {{ section.settings.heading_text }}
+          </div>
+          {% if section.settings.caption_text != blank %}
+            <div class="blog-banner__caption caption-{{ section.id }}">
+              {{ section.settings.caption_text }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+{% style %}
+  .heading-{{ section.id }} {
+    color: {{ section.settings.heading_color }}
+  }
+  .caption-{{ section.id }} {
+    color: {{ section.settings.caption_color }}
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "name": "Blog banner",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "content_position",
+        "label": "Content Position",
+        "options": [
+          {
+            "value": "justify-start align-center",
+            "label": "Left"
+          },
+          {
+            "value": "justify-center align-center",
+            "label": "Center"
+          },
+          {
+            "value": "justify-end align-center",
+            "label": "Right"
+          }
+        ],
+        "default": "justify-center align-center"
+      },
+      {
+        "type": "header",
+        "content": "Image settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image (desktop)"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image (mobile)"
+      },
+      {
+        "type": "header",
+        "content": "Color settings"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "caption_color",
+        "label": "Caption color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Text settings"
+      },
+      {
+        "type": "richtext",
+        "id": "heading_text",
+        "label": "Heading text",
+        "default": "<p>News Room</p>"
+      }, 
+      {
+        "type": "text",
+        "id": "caption_text",
+        "label": "Caption text",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas necessitatibus similique"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog banner"
+      }
+    ]
+  }
+{% endschema %}

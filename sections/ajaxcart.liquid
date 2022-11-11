@@ -1,0 +1,202 @@
+{% assign a= section.settings.free | plus :0 %}
+{% assign b= cart.items_subtotal_price | divided_by: 100 %}
+{% assign c= a | minus: b %}
+{% assign d= b |times: 100 | divided_by: a  %}
+<div class="ajax-cart is--open">
+  <div class="ajax-cart__overlay"></div>
+  <ajax-cart class="ajax-cart__container">
+    <ajaxcart-header>
+      <div class="h2">Shopping cart {% if cart.item_count > 0 %}({{cart.item_count}}){% endif %}</div>
+      <button type="button" class="ajax-cart__close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>            
+        </svg>
+      </button>
+    </ajaxcart-header>
+
+    {% if cart.item_count == 0 %}
+      <ajaxcart-empty class="ajax-cart__empty">
+        <div class="section-heading center">Your cart looks little empty!</div>
+        {% if section.blocks.size > 0 %}
+        <div class="grid grid--2-col-desktop">
+          {% for block in section.blocks %}
+          <div class="grid__item">
+          <div >
+        {%- render 'image'
+      , class: ''
+      , mobileSrc: 
+      , desktopSrc: block.settings.image
+      -%}
+      </div>
+       <a href="{{ block.settings.cart_link }}" >
+         <div class="center">{{ block.settings.title }}</div>
+       </a>
+       </div>
+          {% endfor %}
+        </div>
+        <a href="https://dinesh-94-clothing.myshopify.com/collections/all" >
+         <div class="button button--secondary center">View All</div>
+       </a>
+        {% endif %}
+      </ajaxcart-empty>
+    {% else %}
+      <ajaxcart-body>
+        <div>
+          <div >
+            <div class="shipping-bar"></div>
+            {% if b<a %}
+            <div class="shipping-bar__completed" style="width : {{ d }}%"></div>
+            you need to add {{ c }} more for free shipping
+            {% else %}
+            <div class="shipping-bar__completed" style="width :100%"></div>
+            you got free shipping
+            {% endif %}
+            </div>
+        </div>
+        <form action="{{ routes.cart_url }}" id="AjaxcartForm" class="cart__contents ajax-cart__form" method="post">
+          <div class="ajax-cart__items">
+            {% for item in cart.items %}
+              <ajaxcart-item class="ajaxcart-item grid grid--3-col-desktop" data-item-key="{{ item.key }}">
+                <div class="ajaxcart-item__media grid__item">
+                  <a href="{{ item.url }}" class="ajaxcart-item__link">
+                    <img class="ajaxcart-item__image"
+                      src="{{ item.image | image_url: width: 300 }}"
+                      alt="{{ item.image.alt | escape }}"
+                      loading="lazy"
+                      width="150"
+                      height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                    >
+                  </a>
+                </div>
+                <div class="ajaxcart-item__info grid__item left">
+                  <a href="{{ item.url }}" class="ajaxcart-item__title h5">{{ item.product.title | escape }}</a>
+                  <ajaxcart-item-quantity class="quantity__flex">
+              <button class="quantity__button" data-item-key="{{ item.key }}" name="minus" type="button">-</button>
+              <input class="quantity__input"
+                  type="number"
+                  name="quantity"
+                  id="Quantity-{{ section.id }}"
+                  min="1"
+                  value= "{{ item.quantity }}""
+                  form="AjaxcartForm"
+                >
+              <button class="quantity__button" data-item-key="{{ item.key }}" name="plus" type="button">+</button>
+            </ajaxcart-item-quantity>
+            <div>
+             {% unless item.product.has_only_default_variant %}
+                    <ajaxcart-variants>
+                      <select data-item-key="{{ item.key }}">
+                        {% for variant in item.product.variants %}
+                          <option value="{{ variant.id }}" {% if variant.id == item.id %}selected{% endif %}>{{ variant.title }}</option>
+                        {% endfor %}
+                      </select>
+                      <script type="application/json">
+                        {{ item.product.variants | json }}
+                      </script>
+                    </ajaxcart-variants>
+                  {% endunless %}
+            </div>
+                </div>
+                <div class="grid__item right justify-between ">
+                  <ajaxcart-item-remove>
+                  <button type="button" data-item-key="{{ item.key }}">Remove</button>
+                </ajaxcart-item-remove>
+                <div>
+                  {{ item.final_price | money }}
+                  </div>
+                </div> 
+              </ajaxcart-item>
+            {% endfor %}
+          </div>
+        </form>
+      </ajaxcart-body>
+  
+      <ajaxcart-footer>
+        <div class="ajax-cart__subtotal">
+          <div class="h4 ajax-cart__subtotal--label">Subtotal</div>
+          <div class="ajax-cart__subtotal--value">{{ cart.total_price | money_with_currency }}</div>
+        </div>
+  
+        <button type="submit" id="AjaxcartSubmit" class="button button--full-width ajax-cart__submit" name="checkout" form="AjaxcartForm">
+          Checkout
+        </button>
+  
+        <div class="ajax-cart__taxnote center">
+          {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            Tax included. <a href="{{ shop.shipping_policy.url }}">Shipping</a> calculated at checkout.
+          {%- elsif cart.taxes_included -%}
+            Tax included and shipping calculated at checkout
+          {%- elsif shop.shipping_policy.body != blank -%}
+            Taxes and <a href="{{ shop.shipping_policy.url }}">shipping</a> calculated at checkout
+          {%- else -%}
+            Taxes and shipping calculated at checkout
+          {%- endif -%}
+        </div>
+      </ajaxcart-footer>
+    {% endif %}
+  </ajax-cart>
+</div>
+
+{% style %}
+  .button{
+    width:100%;
+  }
+  .shipping-bar {
+    background: #e5e5e5;
+    width: 100%;
+    padding: 4px;
+    border-radius: 2rem;
+  }
+  .shipping-bar__completed {
+    width: 52%;
+    background: #14c314;
+    min-height: 10px;
+    display: block !important;
+    border-radius: 2rem;
+  }
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Ajaxcart",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_free_shipping",
+        "label": "free_shipping_bar",
+        "default": true
+      },
+      {
+  "type": "text",
+  "id": "free",
+  "label": "Free Shipping Minimum Amount",
+  "default": "Enter"
+  }
+    ],
+    "blocks": [
+  {
+  "type": "cart-items",
+  "name": "cart-items",
+  "settings": [
+    {
+  "type": "text",
+  "id": "title",
+  "label": "Title",
+  "default": "title"
+  },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+  {
+      "type": "url",
+      "id": "cart_link",
+      "label": "collection link"
+  }
+  ]
+  }
+  ]
+  }
+{% endschema %}

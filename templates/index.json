@@ -1,0 +1,291 @@
+{
+  "sections": {
+    "05f4ab8f-8096-4461-98ac-c8ad7853e6c2": {
+      "type": "hero-banner",
+      "blocks": {
+        "840a3cef-dfd4-41a0-8553-107f4958fb0a": {
+          "type": "carousel-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/desktop_80602a97-5eb0-408f-ae1f-8fb6a84c80ff.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/mobile_1_d4af53b4-4907-4c14-bbf0-146a42493e4a.jpg",
+            "heading_text": "<p>Massive <strong>Battery Life<\/strong><br\/>Nobody <strong>can stop<\/strong><br\/>you from <strong>listening<\/strong><\/p>",
+            "caption_text": "Lorem ipsum dolor sit amet, consect",
+            "icon_text1": "Noise cancellation",
+            "icon1": "shopify:\/\/shop_images\/4733285_aad32dda-b4ee-4ac4-8a35-6828ccca7cf5.png",
+            "icon_text2": "Long battery life",
+            "icon2": "shopify:\/\/shop_images\/5891836_4f692596-4c0a-4dd4-984b-8657b366df45.png",
+            "icon_text3": "Bluetooth enabled",
+            "icon3": "shopify:\/\/shop_images\/6803437_9b2d28ee-4b50-4843-9c0a-ebf3571d6b12.png",
+            "icon_text4": "True bass sound",
+            "icon4": "shopify:\/\/shop_images\/7268149_4e099206-2ffb-4490-bd7c-4a7cd9c4e83c.png",
+            "Button_text": "Shop Now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "840a3cef-dfd4-41a0-8553-107f4958fb0a"
+      ],
+      "settings": {
+        "content_position": "justify-start align-start"
+      }
+    },
+    "10aaf118-62a1-4dbf-8863-41e69a69d54b": {
+      "type": "featured-products",
+      "settings": {
+        "section_heading": "<p>New <strong>Launch<\/strong><\/p>",
+        "collection": "mine",
+        "product_limit": 4
+      }
+    },
+    "f2b854d4-294d-43d1-a7e2-9efd28c66f09": {
+      "type": "product-tabs",
+      "blocks": {
+        "d917cf5f-244b-4420-8b09-a370c7ee19b6": {
+          "type": "collection-tab",
+          "settings": {
+            "title": "Ear Phones",
+            "collection": "earphones"
+          }
+        },
+        "da4e2ffd-d199-4670-8862-c83afd8a84f1": {
+          "type": "collection-tab",
+          "settings": {
+            "title": "Watch",
+            "collection": "rdc"
+          }
+        },
+        "59abd8de-ee95-4123-96d0-fd147f2a1066": {
+          "type": "collection-tab",
+          "settings": {
+            "title": "Head Phones",
+            "collection": "mine"
+          }
+        },
+        "cb9eebd7-f8f5-4c1a-8e1a-3c8c0b0ba991": {
+          "type": "collection-tab",
+          "settings": {
+            "title": "Fit bit",
+            "collection": "dinesh"
+          }
+        },
+        "00ede96a-0d21-48e4-8798-c54aa611c22e": {
+          "type": "collection-tab",
+          "settings": {
+            "title": "Pill",
+            "collection": "hello"
+          }
+        }
+      },
+      "block_order": [
+        "d917cf5f-244b-4420-8b09-a370c7ee19b6",
+        "da4e2ffd-d199-4670-8862-c83afd8a84f1",
+        "59abd8de-ee95-4123-96d0-fd147f2a1066",
+        "cb9eebd7-f8f5-4c1a-8e1a-3c8c0b0ba991",
+        "00ede96a-0d21-48e4-8798-c54aa611c22e"
+      ],
+      "settings": {
+        "section_heading": "<p>Trending <strong>Collections<\/strong><\/p>"
+      }
+    },
+    "5e79eca1-b0af-452c-a308-0a3160776189": {
+      "type": "collection-grid",
+      "blocks": {
+        "74f132e8-793d-4e09-9b87-646013b29e0c": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        },
+        "82d254a4-98dc-4402-9896-80be5ffc276f": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        },
+        "f031b6a6-e1d5-4083-82d1-4b9aca326d3d": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        },
+        "e04539e3-daae-409a-a4d5-cecd66f59411": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        },
+        "6a3c3514-f73a-4afd-b8f8-d17746cbe535": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        },
+        "9ac4a6ab-c509-48d1-9a42-fef5ca5d1758": {
+          "type": "image-blocks",
+          "settings": {
+            "image_url": "",
+            "background_color": "#f4fcf9",
+            "image": "shopify:\/\/shop_images\/MaskGroup130226_1_f3135f9f-c3c7-44ee-9c70-9aa9f3fbf700.png",
+            "image_text": "<p>Smart Watch<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "74f132e8-793d-4e09-9b87-646013b29e0c",
+        "82d254a4-98dc-4402-9896-80be5ffc276f",
+        "f031b6a6-e1d5-4083-82d1-4b9aca326d3d",
+        "e04539e3-daae-409a-a4d5-cecd66f59411",
+        "6a3c3514-f73a-4afd-b8f8-d17746cbe535",
+        "9ac4a6ab-c509-48d1-9a42-fef5ca5d1758"
+      ],
+      "settings": {
+        "section_heading": "<p>Shop By <strong>Category<\/strong><\/p>"
+      }
+    },
+    "ff13f47e-5e87-4c52-99ce-4e6d836bfcd5": {
+      "type": "Image-with-text",
+      "settings": {
+        "switch": "right-switch",
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(244, 248, 255, 1) 37%)",
+        "heading_color": "#163f55",
+        "image": "shopify:\/\/shop_images\/Group205711.png",
+        "heading": "<p><strong>Get 15% Off<\/strong> on your <br\/>first order, get <strong>free delivery<\/strong><\/p>",
+        "caption": "<p>lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl<\/p>",
+        "paragraph": "",
+        "button": "Shop Now",
+        "big-image": "shopify:\/\/shop_images\/Mask_Group_130431.png"
+      }
+    },
+    "facaf2d7-7ec4-44b2-a03c-a3c174638b73": {
+      "type": "Image-with-text",
+      "settings": {
+        "switch": "right-switch",
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(244, 248, 255, 1) 1%)",
+        "heading_color": "#163f55",
+        "heading": "<p>Why <strong>we Rock<\/strong><\/p>",
+        "caption": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br\/><br\/>eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ipsumenim ad minim veniam, quis nostrud exercitation ullamco lorelaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,  culpa qui officia deserunt mollit anim id est laborum.<br\/><br\/>lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl<\/p>",
+        "paragraph": "",
+        "button": "Know More",
+        "big-image": "shopify:\/\/shop_images\/Mask_Group_130431.png"
+      }
+    },
+    "c4d5915f-a900-469c-8322-c7b9b640a4c0": {
+      "type": "Image-with-text",
+      "settings": {
+        "switch": "left-switch",
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(244, 248, 255, 1) 1%)",
+        "heading_color": "#163f55",
+        "heading": "<p><strong>Get 15% Off<\/strong> on your <br\/>first order, get <strong>free delivery<\/strong><\/p>",
+        "caption": "<p>lorem10 asdifncadkncfkadcf nakl nacd fandckld fcl<\/p>",
+        "paragraph": "",
+        "button": "Shop Now",
+        "big-image": "shopify:\/\/shop_images\/Mask_Group_130492_2x_235a3228-89e7-4b00-9c64-6b9423c7a736.png"
+      }
+    },
+    "88a6ffa6-d275-492c-9161-e51529587fbc": {
+      "type": "image-with-product",
+      "settings": {
+        "background_color": "linear-gradient(180deg, rgba(45, 85, 144, 1), rgba(45, 170, 129, 1) 100%)",
+        "heading_text": "Heading text",
+        "heading_color": "#ffffff",
+        "paragraph_text": "<p>Lorem ipsum dolor sit amet, consetetur sadips elitr, sed diam nonumy eirmod tempor invidunt labore et dolore magna aliquyam erat, sed magna aliquyam era<\/p>",
+        "paragraph_color": "#ffffff",
+        "signature_text": "Signature text",
+        "signature_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/Mask_Group_130431.png",
+        "product": "headphones"
+      }
+    },
+    "33d51aa9-6f92-40a4-8d85-6a5bf94bde6d": {
+      "type": "image-overlay-grids",
+      "blocks": {
+        "a1938438-edde-4526-91ff-f368aa606af5": {
+          "type": "image-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/collection_list_headphones_b76f953b-698b-4257-9340-82efb5619f36.webp",
+            "url": "",
+            "heading": "#Heading",
+            "paragraph": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "d8713b4c-c22d-4292-bcaf-d6ef0cd716a9": {
+          "type": "image-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pf-52d735fa--SILOUNewsletterSeptember2020Zerowasteweek9_1_680x_5ae93e5e-26e1-4436-b4a7-91fefc84cf8d.webp",
+            "url": "",
+            "heading": "#Heading",
+            "paragraph": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "46370e4e-f0a1-4e29-a775-cf5845a1130e": {
+          "type": "image-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "url": "",
+            "heading": "#Heading",
+            "paragraph": "Lorem ipsum dolor sit amet"
+          }
+        },
+        "2aae3600-fdbe-419a-9bc1-395234e3818a": {
+          "type": "image-item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pf-1cac543c--2_2_2_460x_2f595ee3-c25a-47a6-b4ce-b3f5af84032b.webp",
+            "url": "",
+            "heading": "#Heading",
+            "paragraph": "Lorem ipsum dolor sit amet"
+          }
+        }
+      },
+      "block_order": [
+        "a1938438-edde-4526-91ff-f368aa606af5",
+        "d8713b4c-c22d-4292-bcaf-d6ef0cd716a9",
+        "46370e4e-f0a1-4e29-a775-cf5845a1130e",
+        "2aae3600-fdbe-419a-9bc1-395234e3818a"
+      ],
+      "settings": {
+        "section_heading": "<p>A Product <strong>made to fit<\/strong><\/p>"
+      }
+    },
+    "50222e66-3e64-4316-a427-1853ae528625": {
+      "type": "newsletter",
+      "settings": {
+        "switch": "left-switch",
+        "background": "Linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(244, 248, 255, 1) 100%)",
+        "heading_color": "#163f55",
+        "heading": "<p>Join our global community<br\/>for <strong>Exclusive benefits<\/strong><\/p>",
+        "caption": "<p>The House of bang & olusen<\/p>",
+        "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <\/p>",
+        "button": "Shop Now",
+        "big-image": "shopify:\/\/shop_images\/AdobeStock_481478258_Preview_2x_016b25ba-f069-4cf2-a124-a285f8055fa8.png"
+      }
+    }
+  },
+  "order": [
+    "05f4ab8f-8096-4461-98ac-c8ad7853e6c2",
+    "10aaf118-62a1-4dbf-8863-41e69a69d54b",
+    "f2b854d4-294d-43d1-a7e2-9efd28c66f09",
+    "5e79eca1-b0af-452c-a308-0a3160776189",
+    "ff13f47e-5e87-4c52-99ce-4e6d836bfcd5",
+    "facaf2d7-7ec4-44b2-a03c-a3c174638b73",
+    "c4d5915f-a900-469c-8322-c7b9b640a4c0",
+    "88a6ffa6-d275-492c-9161-e51529587fbc",
+    "33d51aa9-6f92-40a4-8d85-6a5bf94bde6d",
+    "50222e66-3e64-4316-a427-1853ae528625"
+  ]
+}
