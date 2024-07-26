@@ -1,5 +1,8 @@
+body{
+  background-color:grey
+}
 ::selection {
-  background-color: green;
+  background-color: transparent;
 }
 
 img {
