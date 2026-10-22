@@ -22,11 +22,7 @@
           {% for block in section.blocks %}
           <div class="grid__item">
           <div >
-        {%- render 'image'
-      , class: ''
-      , mobileSrc: 
-      , desktopSrc: block.settings.image
-      -%}
+        {%- render 'image', class: '', desktopSrc: block.settings.image -%}
       </div>
        <a href="{{ block.settings.cart_link }}" >
          <div class="center">{{ block.settings.title }}</div>
@@ -199,4 +195,14 @@
   }
   ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'image'\n      , class: ''\n      , mobileSrc: \n      , desktopSrc:
+    block.settings.image\n      -%}"
+  to: "{%- render 'image', class: '', desktopSrc: block.settings.image -%}"
+  position: 1133..1200
+{%- endcomment -%}

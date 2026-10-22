@@ -12,7 +12,7 @@
             <div class="collection-grid__wrapper background-{{ block.id }}">
               <a href="{{ block.settings.image_url }}" class="collection-grid_url">
                 <div class="collection-grid_image">
-                  {%- render 'image',class="media media--square", mobileSrc: block.settings.image, desktopSrc: block.settings.image -%}
+                  {%- render 'image', mobileSrc: block.settings.image, desktopSrc: block.settings.image -%}
                 </div>
                 <div class="collection-grid__overlay center">
                   {{ block.settings.image_text | replace: '<p>', '<h5>' }}
@@ -80,4 +80,15 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{%- render ''image'',class="media media--square", mobileSrc: block.settings.image,
+    desktopSrc: block.settings.image -%}'
+  to: "{%- render 'image', mobileSrc: block.settings.image, desktopSrc: block.settings.image
+    -%}"
+  position: 708..797
+{%- endcomment -%}

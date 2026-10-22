@@ -6,11 +6,7 @@
     </div>
     </div> 
     <div class="flex justify-center " >
-    {%- render 'image', 
-              class: '',
-              mobileSrc: ,
-              desktopSrc: section.settings.image 
-            -%} 
+    {%- render 'image', class: '', desktopSrc: section.settings.image -%} 
     </div>
      <div class="flex  justify-end">
       <div class="left">
@@ -75,4 +71,14 @@
   }
   ]
   }
-  {% endschema %}
+  {% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'image', \n              class: '',\n              mobileSrc:
+    ,\n              desktopSrc: section.settings.image \n            -%}"
+  to: "{%- render 'image', class: '', desktopSrc: section.settings.image -%}"
+  position: 307..376
+{%- endcomment -%}
